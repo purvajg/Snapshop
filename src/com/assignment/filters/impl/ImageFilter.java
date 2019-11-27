@@ -16,13 +16,13 @@ public class ImageFilter implements Filter {
 
     @Override
     public void filter(PixelImage theImage) {
-        Pixel[][] originialImage = theImage.getData();
+        Pixel[][] originalImage = theImage.getData();
         Pixel[][] resultImage = theImage.getData();
 
         for (int row = 1; row < theImage.getHeight() - 1; row++) {
             for (int column = 1; column < theImage.getWidth() - 1; column++) {
 
-                createColorArray(originialImage, row, column);
+                createColorArray(originalImage, row, column);
 
                 Pixel pixel = convertWeightedArrayToPixel(scalingFactor);
 
@@ -34,12 +34,12 @@ public class ImageFilter implements Filter {
         theImage.setData(resultImage);
     }
 
-    public void createColorArray(Pixel[][] originialImage, int row, int column) {
+    public void createColorArray(Pixel[][] originalImage, int row, int column) {
         int index = 0;
 
         for (int i = -1; i < 2; i++) {
             for (int k = -1; k < 2; k++) {
-                colorArray[index] = originialImage[row + i][column + i];
+                colorArray[index] = originalImage[row + i][column + i];
                 index++;
             }
         }
