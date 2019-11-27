@@ -1,6 +1,6 @@
 package com.assignment.filters.impl;
 
-public class SharpFilter extends ImageFilter {
+public class SharpFilter extends ComplexImageFilter {
     public SharpFilter(){
         weights= new int[]{-1,-1,-1,-1,12,-1,-1,-1,-1};
         scalingFactor=-1;

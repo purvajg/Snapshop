@@ -1,6 +1,6 @@
 package com.assignment.filters.impl;
 
-public class SaturaionFilter extends ImageFilter {
+public class SaturaionFilter extends ComplexImageFilter {
     public SaturaionFilter(){
         weights= new int[]{5,5,5,5,9,5,5,5,5};
         scalingFactor=16;

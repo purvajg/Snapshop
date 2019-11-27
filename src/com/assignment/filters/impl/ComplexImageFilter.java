@@ -3,14 +3,14 @@ package com.assignment.filters.impl;
 import com.assignment.pixel.Pixel;
 import com.assignment.pixel.PixelImage;
 
-public class ImageFilter implements Filter {
+public class ComplexImageFilter implements Filter {
     protected int[] weights;
 
     private Pixel[] colorArray;
 
     protected int scalingFactor;
 
-    public ImageFilter() {
+    public ComplexImageFilter() {
         this.colorArray = new Pixel[9];
     }
 
