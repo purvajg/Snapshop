@@ -108,5 +108,17 @@ public class PixelImage
         }
     }
 
+//    public Pixel[][] transform(Pixel[][] data, int[][] weights) {
+//        Pixel[][] result = new Pixel[data.length][data[0].length];
+//        for(int i = 1; i<data.length-1; i++) {
+//            for(int j= 1; j<data.length-1 ;j++) {
+//                Pixel current = data[i][j];
+//
+//            }
+//        }
+//    }
+
     // add a method to compute a new image given weighted averages
+
+
 }
