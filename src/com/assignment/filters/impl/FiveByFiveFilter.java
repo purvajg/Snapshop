@@ -2,17 +2,18 @@ package com.assignment.filters.impl;
 import com.assignment.pixel.Pixel;
 import com.assignment.pixel.PixelImage;
 
-/*This class would be a helper class for all othe complex filters like Gaussian, Edgy, Laplacian, etc.
+/*This class would be a helper class for all other complex filters like ExampleFiveByFive class
 It creates an image given a array of weight and scaling factor.
  */
-public class ComplexImageFilter implements Filter {
+public class FiveByFiveFilter implements Filter {
     protected int[] weights;
     protected int scalingFactor;
+    protected int matrixSize;
     private Pixel[] colorArray;
 
 
-    public ComplexImageFilter() {
-        this.colorArray = new Pixel[9];//because 3x3 array, so length is 9
+    public FiveByFiveFilter() {
+        this.colorArray = new Pixel[matrixSize*matrixSize];//because 5x5 array, so length is 25
     }
 
     @Override
@@ -20,8 +21,8 @@ public class ComplexImageFilter implements Filter {
         Pixel[][] originalImage = theImage.getData();
         Pixel[][] resultImage = theImage.getData();
 
-        for (int row = 1; row < theImage.getHeight() - 1; row++) {
-            for (int column = 1; column < theImage.getWidth() - 1; column++) {
+        for (int row = 2; row < theImage.getHeight() - 2; row++) {
+            for (int column = 2; column < theImage.getWidth() - 2; column++) {
 
                 createColorArray(originalImage, row, column);
 
@@ -36,14 +37,14 @@ public class ComplexImageFilter implements Filter {
     }
 
     /*
-    here we are converting the 3x3 color array from the original image to an array so it would we helpful later to
+    here we are converting the 5x5 color array from the original image to an array so it would we helpful later to
     multiply it by weights in convertWeightedArrayToPixel()
      */
     public void createColorArray(Pixel[][] originalImage, int row, int column) {
         int index = 0;
 
-        for (int i = -1; i < 2; i++) {
-            for (int k = -1; k < 2; k++) {
+        for (int i = -2; i < 3; i++) {
+            for (int k = -2; k < 3; k++) {
                 colorArray[index] = originalImage[row + i][column + k];
                 index++;
             }
@@ -61,7 +62,7 @@ public class ComplexImageFilter implements Filter {
         int green = 0;
         int blue = 0;
 
-        while (index < 9) { //multiplying the colors with weights and taking total simultaneously
+        while (index < 25) { //multiplying the colors with weights and taking total simultaneously
             red += (colorArray[index].red) * weights[index];
             green += (colorArray[index].green) * weights[index];
             blue += (colorArray[index].blue) * weights[index];

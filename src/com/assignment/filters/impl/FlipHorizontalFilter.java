@@ -9,6 +9,12 @@ import com.assignment.pixel.PixelImage;
  * This class is COMPLETE. Don't change it. But model your other classes (such
  * as FlipVerticalFilter) after it.
  */
+
+/*
+Simple conversions like flipHorizontalFilter, flipVerticalFilter, and NegativeFilter class do not require
+the ComplexImageFilter class. Hence, not these three classes do not extend ComplexImageFilter class
+ */
+
 public class FlipHorizontalFilter implements Filter
 {
     public void filter(PixelImage pi)

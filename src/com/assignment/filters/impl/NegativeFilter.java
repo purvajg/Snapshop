@@ -1,7 +1,11 @@
 package com.assignment.filters.impl;
-
 import com.assignment.pixel.Pixel;
 import com.assignment.pixel.PixelImage;
+
+/*
+Simple conversions like flipHorizontalFilter, flipVerticalFilter, and NegativeFilter class do not require
+the ComplexImageFilter class. Hence, not these three classes do not extend ComplexImageFilter class
+ */
 
 public class NegativeFilter implements Filter {
     @Override
